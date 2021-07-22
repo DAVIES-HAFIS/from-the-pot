@@ -163,9 +163,11 @@ class _SpecialPageState extends State<SpecialPage> {
                   child: Text('Special', style: TextStyle(color: Color(0xff000000).withOpacity(0.8),fontSize: 23,fontWeight: FontWeight.w800),),
                 ),
                 SizedBox(height: 20,),
-                Container(
-                  height:135,width:305,
-                  child: SpecialCourseSection(),
+                Center(
+                  child: Container(
+                    height:135,width:305,
+                    child: SpecialCourseSection(),
+                  ),
                 ),
               ],
             ),
@@ -263,13 +265,15 @@ class PopularCourseSection extends StatefulWidget {
 class _PopularCourseSectionState extends State< PopularCourseSection> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      children: [
-        PopularCourse(image: 'images/lobster.png', title: 'Buttered Lobster'),
-        PopularCourse(image: 'images/cheeseburger.png', title: 'Chicken Sandwish'),
-        PopularCourse(image: 'images/lobster.png', title: 'Whipped Cream Cake'),
-      ],
+    return Container(
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          PopularCourse(image: 'images/lobster.png', title: 'Buttered Lobster'),
+          PopularCourse(image: 'images/cheeseburger.png', title: 'Chicken Sandwish'),
+          PopularCourse(image: 'images/lobster.png', title: 'Whipped Cream Cake'),
+        ],
+      ),
     );
   }
 }
@@ -293,59 +297,15 @@ class _SpecialCourseState extends State<SpecialCourse> {
       },
       child: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(widget.image), fit: BoxFit.cover,
+          image: DecorationImage(image: AssetImage(widget.image), fit: BoxFit.fill,
           ),
-
           borderRadius: BorderRadius.all(Radius.circular(22.5),),
         ),
         height: 135,
         width: 305,
         padding: EdgeInsets.only(left: 10, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height:146,
-            ),
-            Container(
-                width:100,child: Text(widget.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: Colors.white),)),
-            SizedBox(
-              height:10,
-            ),
-            Container(
-              width: 79,
-              // height: 15,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  FavoriteStar(),
-                  FavoriteStar(),
-                  FavoriteStar(),
-                  FavoriteStar(),
-                  FavoriteStar(),
-                ],
-              ),
-            ),
-            SizedBox(
-              height:10,
-            ),
-            Container(
-              child:  Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset('images/deliverytime.png',width: 15,height: 15,),
-                  SizedBox(width:5,),
-                  Text('5 min',style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: Colors.white),),
-                  SizedBox(width:9,),
-                  Image.asset('images/replay.png',width: 15,height: 15,),
-                  SizedBox(width:5,),
-                  Text('2 serve',style: TextStyle(fontSize:10, fontWeight: FontWeight.w500, color: Colors.white),),
-                ],
-              ),
-            ),
-          ],
-        ),
+        margin: EdgeInsets.only(bottom:20),
+
       ),
     );
   }
@@ -363,9 +323,9 @@ class _SpecialCourseSectionState extends State<SpecialCourseSection> {
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
-        PopularCourse(image: 'images/lobster.png', title: 'Buttered Lobster'),
-        PopularCourse(image: 'images/cheeseburger.png', title: 'Chicken Sandwish'),
-        PopularCourse(image: 'images/lobster.png', title: 'Whipped Cream Cake'),
+        PopularCourse(image: 'images/EscovitchChicken.png', title: 'Escovitch Chicken'),
+        PopularCourse(image: 'images/SalmonRundown.png', title: 'Salmon Rundown'),
+        PopularCourse(image: 'images/SpringRolls.png', title: 'Spring Rolls'),
       ],
     );
   }

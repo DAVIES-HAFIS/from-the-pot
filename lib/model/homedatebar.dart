@@ -34,6 +34,34 @@ class _HomeDateBarListState extends State<HomeDateBarList> {
     );
   }
 }
+//
+
+Color active = Color(0xffe5e5e5).withOpacity(0.55);
+Color activeIcon = Colors.black;
+Color activeText = Colors.black;
+
+
+update(int status) {
+  if (status == 1) {
+    if (active == Color(0xffe5e5e5).withOpacity(0.55)) {
+      active = Colors.deepOrange;
+      activeIcon = Colors.deepOrange;
+      activeText = Colors.white;
+    }
+    else {
+       active = Color(0xffe5e5e5).withOpacity(0.55);
+      activeIcon = Colors.black;
+      activeText = Colors.black;
+    }
+  }
+}
+//
+// GestureDetector(
+// onTap: (){
+// setState(() {
+// update(1);
+// });
+// },
 
 
 class HomeDateBar extends StatefulWidget {
@@ -47,32 +75,39 @@ class HomeDateBar extends StatefulWidget {
 class _HomeDateBarState extends State<HomeDateBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 6.0),
+    return GestureDetector(
+      onTap: (){
+      setState(() {
+        update(1);
+        });
+      },
       child: Container(
-           width: 145, height: 45,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(22.5),
-              color: Color(0xffe5e5e5).withOpacity(0.55),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children:[
-                Container(
-                  width:45, height: 43,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    shape: BoxShape.circle
+        margin: EdgeInsets.only(right: 6.0),
+        child: Container(
+             width: 145, height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22.5),
+                color: active,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children:[
+                  Container(
+                    width:45, height: 43,
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      shape: BoxShape.circle
+                    ),
+                    child: Center(child: Image.asset(widget.image,width: 30,height: 30,color: activeIcon,),),
                   ),
-                  child: Center(child: Image.asset(widget.image,width: 30,height: 30,color: Colors.black,),),
-                ),
-                SizedBox(width: 26,),
-                Text(
-                  widget.title, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 11.5, color: Colors.black),
-                ),
-              ],
+                  SizedBox(width: 26,),
+                  Text(
+                    widget.title, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 11.5, color: activeText),
+                  ),
+                ],
+              ),
             ),
-          ),
+      ),
     );
   }
 }

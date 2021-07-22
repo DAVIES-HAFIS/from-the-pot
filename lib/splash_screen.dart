@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route(){
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SpecialPage()),);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()),);
   }
 
   @override
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           child: GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SpecialPage()),);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()),);
             },
             child:  Center(
               child: Image(
